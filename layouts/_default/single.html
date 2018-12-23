@@ -1,0 +1,21 @@
+{{ define "main" }}
+<div class="section">
+    <div class="container">
+
+        <h1 class="title">{{ .Title }}</h1>
+
+        <div class="content">
+        {{ .Content }}
+        </div>
+
+    </div>
+</div>
+<div class="page-blocks">
+    {{- range .Params.blocks -}}
+        {{- if eq .template "hero-section" -}}{{ partial "blocks/hero" (dict "Params" .) }}{{- end -}}
+        {{- if eq .template "media-feature" -}}{{ partial "blocks/media-feature" (dict "Params" .) }}{{- end -}}
+        {{- if eq .template "button" -}}{{ partial "blocks/cta" (dict "Params" .) }}{{- end -}}
+        {{- if eq .template "text" -}}{{ partial "blocks/content" (dict "Params" .) }}{{- end -}}
+    {{- end -}}
+</div>
+{{ end }}

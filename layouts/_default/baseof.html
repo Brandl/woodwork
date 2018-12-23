@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="{{ .Lang }}">
+    <head>
+        {{ partial "head" . }}
+        {{ block "extra_css" . }}{{ end }}
+    </head> 
+    <body>
+        {{- if ne .Page.Kind "404" -}}
+            {{ partial "nav" . }}
+        {{- end -}}
+        <main id="primary-content">
+            {{block "main" . }}{{ end }}
+        </main>
+        {{ partial "footer" . }}
+        {{ block "extra_js" . }}{{ end }}
+    </body>
+</html>

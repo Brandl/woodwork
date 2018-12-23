@@ -1,0 +1,32 @@
+{{ define "main" }}
+<div class="page-blocks">
+    {{- range .Params.blocks -}}
+        {{- if eq .template "hero-section" -}}{{ partial "blocks/hero" (dict "Params" .) }}{{- end -}}
+        {{- if eq .template "media-feature" -}}{{ partial "blocks/media-feature" (dict "Params" .) }}{{- end -}}
+        {{- if eq .template "button" -}}{{ partial "blocks/cta" (dict "Params" .) }}{{- end -}}
+        {{- if eq .template "text" -}}{{ partial "blocks/content" (dict "Params" .) }}{{- end -}}
+    {{- end -}}
+</div>
+
+<div class="section">
+	<div class="container">
+
+
+	<div class="columns">
+	  <div class="column is-two-thirds">
+		{{ range .Params.images }}
+			<img src="{{ . | relURL }}" alt=""></a>    
+		{{ end }}
+	  </div>
+	  <div class="column">
+	  	<h1 class="title">{{ .Title }}</h1>
+	        <article id="content" class="content">
+	           {{ .Content }}
+	        </article>
+	  </div>
+	</div>
+
+	</div>
+</div>
+
+{{ end }}

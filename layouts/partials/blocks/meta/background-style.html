@@ -1,0 +1,11 @@
+{{- with . -}}
+    {{- if eq "Brand Color" . }}is-primary has-background-primary has-text-light{{- end -}}
+    {{- if eq "Light" . }}is-light has-background-light has-text-dark{{- end -}}
+    {{- if eq "Dark" . }}is-dark has-background-dark has-text-light{{- end -}}
+    {{- if eq "Info" . }}is-info has-background-info has-text-dark{{- end -}}
+    {{- if eq "Success" . }}is-success has-background-success has-text-dark{{- end -}}
+    {{- if eq "Warning" . }}is-warning has-background-warning has-text-dark{{- end -}}
+    {{- if eq "Danger" . }}is-danger has-background-danger has-text-dark{{- end -}}
+    {{- if eq "White" . }}is-white has-background-white has-text-dark{{- end -}}
+    {{- if eq "Black" . }}is-black has-background-Black has-text-dark{{- end -}}
+{{- end -}}
