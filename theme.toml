@@ -4,7 +4,7 @@
 name = "Woodwork"
 license = "MIT"
 licenselink = ""
-description = "Yet another custom made theme"
+description = "Hugo theme focused on presentation of photography and flexibility"
 homepage = "https://j3.at"
 tags = []
 features = []
@@ -12,5 +12,5 @@ min_version = "0.46"
 
 [author]
   name = "Brandl"
-  homepage = "https://github.com/Brandl"
+  homepage = "https://github.com/Brandl/woodwork"
 

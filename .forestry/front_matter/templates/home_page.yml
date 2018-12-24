@@ -1,5 +1,5 @@
 ---
-label: page
+label: Home page
 hide_body: true
 is_partial: false
 fields:
@@ -14,13 +14,19 @@ fields:
   - call-to-action
   - media-feature
   - hero-section
+- type: boolean
+  name: infinite_gallery
+  label: Show inifinite photo gallery?
+  description: Infinite scroll gallery will be appened at the home page
+  default: true
+  hidden: false
 - name: date
   label: Date
   type: datetime
-  hidden: false
+  hidden: true
   default: ''
 - name: publishdate
   label: Publishdate
   type: datetime
-  hidden: false
+  hidden: true
   default: ''

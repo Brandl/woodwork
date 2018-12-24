@@ -1,7 +1,15 @@
 ---
+label: text
 hide_body: false
 is_partial: true
+display_field: block_title
 fields:
+- type: text
+  name: block_title
+  label: block_title
+  description: Block Title
+  config:
+    required: true
 - type: textarea
   name: content
   label: Content

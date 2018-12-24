@@ -1,21 +1,18 @@
 ---
-hide_body: true
+label: Call to action
+hide_body: false
 is_partial: true
+display_field: block_title
 fields:
 - type: text
-  name: heading
-  label: Heading
-  description: Large text above button
+  name: block_title
+  label: block_title
+  description: Block Title
+  config:
+    required: true
 - type: text
-  name: subheading
-  label: Subheading
-  description: Smaller text below heading
-- type: textarea
-  name: content
-  label: Content
-  description: Regular text above button
-- type: include
-  name: button
-  label: Button
-  description: ''
-  template: button
+  name: button_url
+  label: Button Url
+- type: text
+  name: button_text
+  label: Button text

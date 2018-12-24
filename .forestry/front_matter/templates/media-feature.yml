@@ -1,7 +1,15 @@
 ---
+label: media-feature
 hide_body: true
 is_partial: true
+display_field: block_title
 fields:
+- type: text
+  name: block_title
+  label: block_title
+  description: Block Title
+  config:
+    required: true
 - type: text
   name: heading
   label: Heading
@@ -20,6 +28,12 @@ fields:
     - Brand Color
     - Light
     - Dark
+    - Info
+    - Success
+    - Warning
+    - Danger
+    - White
+    - Black
     required: false
   label: Background Style
   default: Brand Color

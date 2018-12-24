@@ -1,19 +1,18 @@
 ---
-label: page
-hide_body: true
+label: photos
+hide_body: false
 is_partial: false
 fields:
-- type: text
-  name: title
+- name: title
   label: Title
-- type: blocks
-  name: blocks
-  label: Blocks
-  template_types:
-  - text
-  - call-to-action
-  - media-feature
-  - hero-section
+  type: text
+  hidden: false
+  default: ''
+- name: images
+  label: Images
+  type: image_gallery
+  hidden: false
+  default: ''
 - name: date
   label: Date
   type: datetime
