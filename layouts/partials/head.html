@@ -13,18 +13,10 @@
 <meta name="twitter:description" content="{{ . | truncate 200 }}">
 {{- end -}}
 <meta name="author" content="{{ .Site.Author.name }}"/>
-
-<link rel="apple-touch-icon" sizes="180x180" href="{{ "" | absLangURL }}/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="{{ "" | absLangURL }}/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="{{ "" | absLangURL }}/favicon-16x16.png">
-<link rel="manifest" href="{{ "" | absLangURL }}/site.webmanifest">
-<link rel="mask-icon" href="{{ "" | absLangURL }}/safari-pinned-tab.svg" color="#a00000">
-<meta name="msapplication-TileColor" content="#a00000">
-<meta name="theme-color" content="#a00000">
-
 <meta property="og:url" content="{{ .URL | absLangURL }}" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="{{ .Site.Title }}" />
 <link rel="canonical" href="{{ .URL | absLangURL }}" />
 <link rel="stylesheet" href="{{ "" | absLangURL }}css/main.css" />
+{{ partial "head_favicon.html" . }}
 {{ partial "head_custom.html" . }}
