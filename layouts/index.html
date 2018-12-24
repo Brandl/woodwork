@@ -37,7 +37,7 @@
 
 	{{ if .Params.infinite_gallery }}
 
-	<div name="gallery" class="grid are-images-unloaded">
+	<div id="gallery" class="grid are-images-unloaded">
 		<div class="grid__col-sizer"></div>
 		<div class="grid__gutter-sizer"></div>
 		{{ $paginator := .Paginate (where .Pages "Type" "photos") 5 }}
