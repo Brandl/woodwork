@@ -15,6 +15,15 @@
 		<div class="hero-body">
 			{{ partial "nav" . }}
 		</div>
+		<div class="hero-foot">
+		    <nav class="tabs">
+		      <div class="container">
+		        <ul>
+		          <li class="is-active"><a href="#gallery">▲</a></li>
+		        </ul>
+		      </div>
+		    </nav>
+		  </div>
 	</section>
 
 	<div class="page-blocks">
@@ -28,7 +37,7 @@
 
 	{{ if .Params.infinite_gallery }}
 
-	<div class="grid are-images-unloaded">
+	<div id="#gallery" class="grid are-images-unloaded">
 		<div class="grid__col-sizer"></div>
 		<div class="grid__gutter-sizer"></div>
 		{{ $paginator := .Paginate (where .Pages "Type" "photos") 5 }}
