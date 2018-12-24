@@ -1,5 +1,5 @@
 
-  <nav id="primary-nav" class="navbar container" role="navigation" aria-label="main navigation">
+<nav id="primary-nav" class="navbar container" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item" href="{{ "" | absLangURL }}">
             {{- if .Site.Params.logo -}}
@@ -18,18 +18,18 @@
         <div class="navbar-start"></div>
         <div class="navbar-end">
             {{- range .Site.Menus.main.ByWeight -}}
-                {{- if .HasChildren -}}
-                <div class="navbar-item has-dropdown">
-                    <a class="navbar-link" title="{{ .Name }}" href="{{ .URL  | relLangURL }}">{{ .Name }}</a>
-                    <div class="navbar-dropdown">
-                        {{- range .Children -}}
-                            <a class="navbar-link" title="{{ .Name }}" href="{{ .URL | relLangURL }}">{{ .Name }}</a>
-                        {{- end -}}
-                    </div>
+            {{- if .HasChildren -}}
+            <div class="navbar-item has-dropdown">
+                <a class="navbar-link" title="{{ .Name }}" href="{{ .URL  | relLangURL }}">{{ .Name }}</a>
+                <div class="navbar-dropdown">
+                    {{- range .Children -}}
+                    <a class="navbar-link" title="{{ .Name }}" href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+                    {{- end -}}
                 </div>
-                {{- else -}}
-                <a class="navbar-item" title="{{ .Name }}" href="{{ .URL  | relLangURL }}">{{ .Name }}</a>
-                {{- end -}}
+            </div>
+            {{- else -}}
+            <a class="navbar-item" title="{{ .Name }}" href="{{ .URL  | relLangURL }}">{{ .Name }}</a>
+            {{- end -}}
             {{- end -}}
         </div>
     </div>

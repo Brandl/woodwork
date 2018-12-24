@@ -16,10 +16,6 @@ $primary-invert: findColorInvert($primary);
     font-size: 1em;
 }
 
-.navbar {
-    border-bottom: 1px solid #fff;
-}
-
 .has-text-light, .has-text-dark {
     .title, .subtitle {
         color: inherit;
