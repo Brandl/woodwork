@@ -1,72 +1,54 @@
 {{ define "extra_css" }}    
 <link rel="stylesheet" href="{{ "" | absLangURL }}css/indexonly.css" />
-<style type="text/css">
-.site-title {
-	font-size: 5vw !important; 
-	font-weight: bold;
-}
-
-</style>
 {{ end }}
 
 {{ define "main" }}
 
-	<section class="hero is-fullheight">
-		<div class="hero-body">
-			{{ partial "nav" . }}
-		</div>
-		<div class="hero-foot">
-		    <nav class="tabs">
-		      <div class="container">
-		        <ul>
-		          <li class="is-active"><a href="#gallery">▲</a></li>
-		        </ul>
+<section class="hero is-medium">
+  <div class="hero-body">
+      {{ partial "nav" . }}
+  </div>
+</section>
+
+  <div class="page-blocks">
+      {{- range .Params.blocks -}}
+          {{- if eq .template "hero-section" -}}{{ partial "blocks/hero" (dict "Params" .) }}{{- end -}}
+          {{- if eq .template "media-feature" -}}{{ partial "blocks/media-feature" (dict "Params" .) }}{{- end -}}
+          {{- if eq .template "button" -}}{{ partial "blocks/cta" (dict "Params" .) }}{{- end -}}
+          {{- if eq .template "text" -}}{{ partial "blocks/content" (dict "Params" .) }}{{- end -}}
+      {{- end -}}
+  </div>
+
+    {{ if .Params.infinite_gallery }}
+
+	  <div class="grid are-images-unloaded">
+	    <div class="grid__col-sizer"></div>
+	    <div class="grid__gutter-sizer"></div>
+	      {{ $paginator := .Paginate (where .Pages "Type" "photos") 5 }}
+	      {{ range $paginator.Pages }}
+	         {{ $page := . }}
+	         {{ range .Params.images }}
+		      <div class="grid__item">
+				<a href="{{ $page.URL }}">
+			    <img src="{{ . | relURL }}" alt="{{ $page.Title }}"></a>
 		      </div>
-		    </nav>
-		  </div>
-	</section>
+	      	{{ end }}
+	      {{ end }}
+	  </div>
 
-	<div class="page-blocks">
-		{{- range .Params.blocks -}}
-		{{- if eq .template "hero-section" -}}{{ partial "blocks/hero" (dict "Params" .) }}{{- end -}}
-		{{- if eq .template "media-feature" -}}{{ partial "blocks/media-feature" (dict "Params" .) }}{{- end -}}
-		{{- if eq .template "button" -}}{{ partial "blocks/cta" (dict "Params" .) }}{{- end -}}
-		{{- if eq .template "text" -}}{{ partial "blocks/content" (dict "Params" .) }}{{- end -}}
-		{{- end -}}
-	</div>
+	  <div class="page-load-status">
+	    <div class="loader-ellips infinite-scroll-request">
+	      <span class="loader-ellips__dot"></span>
+	      <span class="loader-ellips__dot"></span>
+	      <span class="loader-ellips__dot"></span>
+	      <span class="loader-ellips__dot"></span>
+	    </div>
+	    <p class="infinite-scroll-last">Keine weiteren Fotos</p>
+	    <p class="infinite-scroll-error">Alle Fotos geladen, mehr gibts auf Instagram ;)</p>
+	  </div>
 
-	{{ if .Params.infinite_gallery }}
-
-	<div id="gallery" class="grid are-images-unloaded">
-		<div class="grid__col-sizer"></div>
-		<div class="grid__gutter-sizer"></div>
-		{{ $paginator := .Paginate (where .Pages "Type" "photos") 5 }}
-		{{ range $paginator.Pages }}
-		{{ $page := . }}
-		{{ range .Params.images }}
-		<div class="grid__item">
-			<a href="{{ $page.URL }}">
-				<img src="{{ . | relURL }}" alt="{{ $page.Title }}">
-			</a>
-		</div>
-		{{ end }}
-		{{ end }}
-	</div>
-
-	<div class="page-load-status">
-		<div class="loader-ellips infinite-scroll-request">
-			<span class="loader-ellips__dot"></span>
-			<span class="loader-ellips__dot"></span>
-			<span class="loader-ellips__dot"></span>
-			<span class="loader-ellips__dot"></span>
-		</div>
-		<p class="infinite-scroll-last">Keine weiteren Fotos</p>
-		<p class="infinite-scroll-error">Alle Fotos geladen, mehr gibts auf morgen ;)</p>
-	</div>
-
-
-	{{ template "_internal/pagination.html" . }}
-	{{ end }}
+	    {{ template "_internal/pagination.html" . }}
+    {{ end }}
 
 {{ end }}
 
