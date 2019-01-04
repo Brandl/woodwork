@@ -1,7 +1,7 @@
 {{ define "main" }}
 <div class="section">
     <div class="container">
-        {{ range .Paginator.Pages }}
+        {{ range .Paginator.Pages.ByPublishDate }}
             <article class="post-excerpt">
                 <a href="{{ .Permalink }}">
                     <h2 class="title">{{ .Title }}</h2>
