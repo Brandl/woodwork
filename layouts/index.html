@@ -25,7 +25,7 @@
 	    <div class="grid__col-sizer"></div>
 	    <div class="grid__gutter-sizer"></div>
 	      {{ $paginator := .Paginate (where .Pages "Type" "photos") 5 }}
-	      {{ range $paginator.Pages }}
+	      {{ range $paginator.Pages.ByPublishDate }}
 	         {{ $page := . }}
 	         {{ range .Params.images }}
 		      <div class="grid__item">
